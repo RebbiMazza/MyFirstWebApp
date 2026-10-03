@@ -1,18 +1,130 @@
-<html>
+<html lang="en">
     <head>
-        <title>Hello World</title>
+    <style>
+        body {
+            background: url('waves.webp');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+        h1 {
+            color: rgb(128, 0, 111);
+            border:2px solid white;
+            text-align: center;
+            background-color: #0d4cec;
+
+        }
+        h2 { 
+            font-family: 'Courier New', Courier, monospace;}
+
+ol.j {list-style-type: hiragana;}
+a {
+  color: rgb(31, 17, 228);
+  background-color: yellow;
+  font-weight: bold;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the header */
+.header {
+  grid-area: header;
+  background-color: #e713bc;
+  padding: 30px;
+  text-align: center;
+  font-size: 35px;
+}
+
+/* The grid container */
+.grid-container {
+  display: grid;
+  grid-template-areas: 
+    'header header header header header header' 
+    'left left middle middle right right' 
+    'footer footer footer footer footer footer';
+  /* grid-column-gap: 10px; - if you want gap between the columns */
+} 
+
+.left,
+.middle,
+.right {
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Style the left column */
+.left {
+  grid-area: left;
+}
+
+/* Style the middle column */
+.middle {
+  grid-area: middle;
+}
+
+/* Style the right column */
+.right {
+  grid-area: right;
+}
+
+/* Style the footer */
+.footer {
+  grid-area: footer;
+  background-color: #87e7e7;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media (max-width: 600px) {
+  .grid-container  {
+    grid-template-areas: 
+      'header header header header header header' 
+      'left left left left left left' 
+      'middle middle middle middle middle middle' 
+      'right right right right right right' 
+      'footer footer footer footer footer footer';
+  }
+
+}
+</style>
     </head>
 
 
     <body>
-        <h1 title="main heading">Hello World Again</h1>
+        <title>Hello World</title>
+        <h1 title="main heading"><b>Hello World Again</b><h1>
         <h2>My name is Rebecca</h2>
-            <hr>
-        <p style="color: blue;">I have blue eyes</p>
-        <br>
+        
+       
+
+    <div class="grid-container">
+  <div class="header">
+    <h2>My name is Rebecca</h2>
+  </div>
+  
+  <div class="left" style="background-color:lightblue;">I have <i>blue eyes</i></div>
+  <div class="middle" style="background-color:#bbb;">
+    <ol class="j">
+        <li><a href="https://www.housebeautiful.com/lifestyle/gardening/a44004499/prettiest-flowers-in-the-world/" target="_blank">Click here</a>to see a flower</li>
+        <li>Tea</li>
+        <li>Coca Cola</li>
+    </ul>
+  </div>  
+  <div class="right" style="background-color:#ccc;"> <br>
         <pre>
 I like to read
 but I love only fantasy books
-        </pre>
+        </pre></div>
+  
+  <div class="footer">
+  <p>Footer</p>
+  </div>
+</div>
     </body>
 </html>
