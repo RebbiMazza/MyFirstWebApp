@@ -20,9 +20,34 @@ ol.j {list-style-type: hiragana;}
 a {
   color: rgb(31, 17, 228);
   background-color: yellow;
-  font-weight: bold;
+  font-weight: bold;  
+}
+ a:hover {
+    color: rgb(255, 0, 0);
+  }  
+
+table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
 }
 
+td, th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+tr:nth-child(odd){background-color: #f2f2f2;}
+
+tr:hover {background-color: #ddd;}
+
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #656cf0;
+  color: rgba(255, 255, 255, 0.996);
+}
 * {
   box-sizing: border-box;
 }
@@ -60,6 +85,7 @@ body {
 /* Style the left column */
 .left {
   grid-area: left;
+  background-color:lightblue;
 }
 
 /* Style the middle column */
@@ -80,6 +106,7 @@ body {
   text-align: center;
 }
 
+
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
 @media (max-width: 600px) {
   .grid-container  {
@@ -97,18 +124,71 @@ body {
 
 
     <body>
-        <title>Hello World</title>
-        <h1 title="main heading"><b>Hello World Again</b><h1>
-        <h2>My name is Rebecca</h2>
+<!--Functions-->
+
+<!--Submission blocker if forms are not filled out-->
+  <script>
+  function validateForm() {
+  let x = document.forms["myForm"]["choice"].value;
+  if (x == "") {
+    alert("Your choice must be filled out to proceed!");
+    return false;
+  }
+  else if (document.getElementById('color').value == "#000000") {
+    alert("Your eye colour must be filled out to proceed!");
+    return false;
+  }
+}
+/*My Summary on choice selection in form*/
+
+    function mySummary() {
+      if (document.getElementById('choice1').checked==true){ 
+          return document.getElementById('summary').innerHTML=document.getElementById('choice1').value +",they are really pretty!";}
+        else if (document.getElementById('choice2').checked==true){
+          return document.getElementById('summary').innerHTML=document.getElementById('choice2').value +",we will get along well!";}
+        else if (document.getElementById('choice3').checked==true){
+          return document.getElementById('summary').innerHTML=document.getElementById('choice3').value +",how can I blame you!";} 
+      else {
+        return document.getElementById('summary').innerHTML="What will you select?";} 
+    }
+    </script>
+
+<title>Hello World</title>
+<h1 title="main heading"><b>Hello World Again</b><h1>
+<h2>My name is Rebecca</h2>
         
        
 
-    <div class="grid-container">
-  <div class="header">
-    <h2>My name is Rebecca</h2>
-  </div>
+<div class="grid-container">
+<div class="header">
+  <h2>My name is Rebecca</h2>
+</div>
   
-  <div class="left" style="background-color:lightblue;">I have <i>blue eyes</i></div>
+<!--Left Column-->
+  <div class="left" style="background-color:lightblue;">I have <i>blue eyes</i> and I like chocolate.
+  <input type="button" style="background-color: #4fbdc1; color: white; padding: 10px 20px; border: none; cursor: pointer;" position:absolute; value="Click here and tell me about you" onclick="document.getElementById('myForm').style.display='block', mySummary()">
+
+<!--Form eye colour-->
+    <form id="myForm" action="Thank-you-page.html" target="_blank" style="display:none" onsubmit="return validateForm()">
+    <label for="color">What's your eye colour?</label><br>
+    <input type="color" id="color" name="color"><br>
+<!--Form radio buttons-->
+    <label for="choice">Pick one:</label><br> 
+
+    <input type="radio" id="choice1" name="choice" value="Flower" onchange="mySummary()">
+      <label for="choice1"> I like Flowers</label><br>
+    <input type="radio" id="choice2" name="choice" value="Chocolate" onchange="mySummary()">
+      <label for="choice2"> I like Chocolate </label><br>
+    <input type="radio" id="choice3" name="choice" value="Boat" onchange="mySummary()">
+      <label for="choice3"> I like Boats</label><br><br>
+  
+    <input type="submit" value="Submit">
+
+    <!-- Summary box -->
+    <p id="summary" style="border: 3px solid #656cf0; padding: 8px; font-style: italic; font-size: small; color: grey;"></p>
+    </form>
+    </div>
+
   <div class="middle" style="background-color:#bbb;">
     <ol class="j">
         <li><a href="https://www.housebeautiful.com/lifestyle/gardening/a44004499/prettiest-flowers-in-the-world/" target="_blank">Click here</a>to see a flower</li>
@@ -116,14 +196,33 @@ body {
         <li>Coca Cola</li>
     </ul>
   </div>  
-  <div class="right" style="background-color:#ccc;"> <br>
-        <pre>
-I like to read
-but I love only fantasy books
-        </pre></div>
+  <div class="right" style="background-color:#ccc;"> 
+    <table>
+  <tr>
+    <th>Cooking</th>
+    <th>Books</th>
+    <th>Travel</th>
+  </tr>
+  <tr>
+    <td><br> Cakes </br></td>
+    <td>Fantasy</td>
+    <td>Japan</td>
+  </tr>
+  <tr>
+    <td>Pasta</td>
+    <td>Crime</td>
+    <td>Uk</td>
+  </tr>
+  </table>
+  </div>
   
   <div class="footer">
   <p>Footer</p>
+  <p id="date"></p>
+  <script>
+  const d = new Date();
+  document.getElementById("date").innerHTML = d;
+</script>
   </div>
 </div>
     </body>
