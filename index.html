@@ -151,7 +151,55 @@ body {
       else {
         return document.getElementById('summary').innerHTML="What will you select?";} 
     }
+
+/*Get Joke Function*/
+    function displayRandomJoke() {
+         const randomJoke = jokes[Math.floor(Math.random() * jokes.length)];
+         jokeBox.textContent = randomJoke.content;
+    }
+
     </script>
+<!--JSON for joke-container-->
+<script id="joke-data" type="application/json"> 
+{
+  "data": {
+    "currentPageItems": 4,
+    "data": [
+      {
+        "categories": [
+          "science"
+        ],
+        "content": "Science Fact: Roundhouse kicks are comprised primarily of an element called Chucktanium.",
+        "id": 140
+      },
+      {
+        "categories": [],
+        "content": "All science students maybe aware about the fact that picochuck is the unit of manliness in the International System of Units (SI). An average man measures about 0.00073 pc. Chuck Norris measures 39,372 petachucks.",
+        "id": 456
+      },
+      {
+        "categories": [],
+        "content": "The 7 wonders of the world were actually Chuck Norris' science fair projects. And Chuck Norris is the 8th wonder of the world.",
+        "id": 1073
+      },
+      {
+        "categories": [],
+        "content": "Larry the Cable Guy was a nuclear science physics professor at MIT for only 3 seconds more after he called Chuck Norris' mother a \"slutty beatch of a crack whore\".",
+        "id": 1269
+      }
+    ],
+    "limit": 10,
+    "nextPage": false,
+    "page": 1,
+    "previousPage": false,
+    "totalItems": 4,
+    "totalPages": 1
+  },
+  "message": "Random jokes fetched successfully",
+  "statusCode": 200,
+  "success": true
+}
+</script>
 
 <title>Hello World</title>
 <h1 title="main heading"><b>Hello World Again</b></h1>
@@ -184,18 +232,33 @@ body {
   
     <input type="submit" value="Submit">
 
-    <!-- Summary box -->
+<!-- Summary box -->
     <p id="summary" style="border: 3px solid #656cf0; padding: 8px; font-style: italic; font-size: small; color: grey;"></p>
     </form>
     </div>
 
+<!--Middle Column-->
   <div class="middle" style="background-color:#bbb;">
     <ol class="j">
         <li><a href="https://www.housebeautiful.com/lifestyle/gardening/a44004499/prettiest-flowers-in-the-world/" target="_blank">Click here</a>to see a flower</li>
         <li>Tea</li>
         <li>Coca Cola</li>
     </ol>
-  </div>  
+<p id="joke-box" style="padding: 8px; font-style: italic; font-size: small; color: grey;"></p>
+<button onclick="displayRandomJoke()" style="background-color: #4fbdc1; color: white; padding: 10px 20px; border: none; cursor: pointer;">Click for a random joke</button>
+<script>
+    /*Read the JSON from the HTML container element*/
+        const rawData = document.getElementById('joke-data').textContent;
+        const responseJson = JSON.parse(rawData);
+        
+    /*Extract the array of jokes*/
+        const jokes = responseJson.data.data;
+        const jokeBox = document.getElementById('joke-box');
+
+</script>
+</div> 
+  
+<!--Right Column-->
   <div class="right" style="background-color:#ccc;"> 
     <table>
   <tr>
@@ -216,6 +279,7 @@ body {
   </table>
   </div>
   
+<!--Footer-->
   <div class="footer">
   <p>Footer</p>
   <p id="date"></p>
@@ -225,5 +289,5 @@ body {
 </script>
   </div>
 </div>
-    </body>
+</body>
 </html>
