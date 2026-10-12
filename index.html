@@ -160,21 +160,19 @@ body {
 
     </script>
 <!--JSON for joke-container-->
-<script id="joke-data" type="application/json"> 
+<script id="joke-data" type="application/json">
 {
   "data": {
     "currentPageItems": 4,
     "data": [
       {
-        "categories": [
-          "science"
-        ],
+        "categories": ["science"],
         "content": "Science Fact: Roundhouse kicks are comprised primarily of an element called Chucktanium.",
         "id": 140
       },
       {
         "categories": [],
-        "content": "All science students maybe aware about the fact that picochuck is the unit of manliness in the International System of Units (SI). An average man measures about 0.00073 pc. Chuck Norris measures 39,372 petachucks.",
+        "content": "All science students may be aware that picochuck is the unit of manliness in the International System of Units (SI). An average man measures about 0.00073 pc. Chuck Norris jokes aside.",
         "id": 456
       },
       {
@@ -184,7 +182,7 @@ body {
       },
       {
         "categories": [],
-        "content": "Larry the Cable Guy was a nuclear science physics professor at MIT for only 3 seconds more after he called Chuck Norris' mother a \"slutty beatch of a crack whore\".",
+        "content": "Larry the Cable Guy was a nuclear science physics professor at MIT for only 3 seconds more after he insulted Chuck Norris' mother.",
         "id": 1269
       }
     ],
@@ -245,7 +243,7 @@ body {
         <li>Coca Cola</li>
     </ol>
 <p id="joke-box" style="padding: 8px; font-style: italic; font-size: small; color: grey;"></p>
-<button onclick="displayRandomJoke()" style="background-color: #4fbdc1; color: white; padding: 10px 20px; border: none; cursor: pointer;">Click for a random joke</button>
+<input type="button" style="background-color: #4fbdc1; color: white; padding: 10px 20px; border: none; cursor: pointer;" value="Click for a random joke" onclick="displayRandomJoke()">
 <script>
     /*Read the JSON from the HTML container element*/
         const rawData = document.getElementById('joke-data').textContent;
