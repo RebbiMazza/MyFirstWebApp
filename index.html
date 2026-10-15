@@ -267,26 +267,24 @@ body {
 <script>
 $(document).ready(function(){
 $("#fade-in").click(function(){
-    $("#table1").fadeIn();
-    $("#table2").fadeIn("slow");
-    $("#table3").fadeIn(3000);
+    $("#table1").fadeIn("slow");
   });
 });
 </script>
 </div>
   <div class="right" style="background-color:#ccc;"> 
-    <table>
-  <tr id="table1" style="display:none"   >
+    <table id="table1" style="display:none">
+  <tr>
     <th>Cooking</th>
     <th>Books</th>
     <th>Travel</th>
   </tr>
-  <tr id="table2" style="display:none"   >
+  <tr>
     <td><br> Cakes</td>
     <td>Fantasy</td>
     <td>Japan</td>
   </tr>
-  <tr id="table3" style="display:none"   >
+  <tr>
     <td>Pasta</td>
     <td>Crime</td>
     <td>Uk</td>
