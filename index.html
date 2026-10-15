@@ -1,5 +1,8 @@
+<!DOCTYPE html>
 <html lang="en">
     <head>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    
     <style>
         body {
             background: url('waves.webp');
@@ -257,19 +260,33 @@ body {
 </div> 
   
 <!--Right Column-->
+<div class="right">
+
+<button id="fade-in">Click to fade in table</button><br><br>
+
+<script>
+$(document).ready(function(){
+$("#fade-in").click(function(){
+    $("#table1").fadeIn();
+    $("#table2").fadeIn("slow");
+    $("#table3").fadeIn(3000);
+  });
+});
+</script>
+</div>
   <div class="right" style="background-color:#ccc;"> 
     <table>
-  <tr>
+  <tr id="table1" style="display:none"   >
     <th>Cooking</th>
     <th>Books</th>
     <th>Travel</th>
   </tr>
-  <tr>
+  <tr id="table2" style="display:none"   >
     <td><br> Cakes</td>
     <td>Fantasy</td>
     <td>Japan</td>
   </tr>
-  <tr>
+  <tr id="table3" style="display:none"   >
     <td>Pasta</td>
     <td>Crime</td>
     <td>Uk</td>
