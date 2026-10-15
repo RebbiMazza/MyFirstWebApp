@@ -262,18 +262,16 @@ body {
 <!--Right Column-->
 <div class="right">
 
-<input type="button" id="fade-in">Click to fade in table</input>
+<button id="fade-in">Click to fade in table</button>
 
 <script>
 $(function(){
   $('#fade-in').on('click', function(){
-    $('#table1, #table2, #table3').each(function(){
-      // set correct display type, ensure it's hidden, then fade in
+    $('#table1').each(function(){
       $(this).css('display','table-row').hide().fadeIn(600);
     });
   });
 });
-</script>
 </script>
 </div>
   <div class="right" style="background-color:#ccc;"> 
