@@ -265,11 +265,15 @@ body {
 <input type="button" id="fade-in">Click to fade in table</input>
 
 <script>
-$(document).ready(function(){
-$("#fade-in").click(function(){
-    $("#table1").fadeIn("slow");
+$(function(){
+  $('#fade-in').on('click', function(){
+    $('#table1, #table2, #table3').each(function(){
+      // set correct display type, ensure it's hidden, then fade in
+      $(this).css('display','table-row').hide().fadeIn(600);
+    });
   });
 });
+</script>
 </script>
 </div>
   <div class="right" style="background-color:#ccc;"> 
